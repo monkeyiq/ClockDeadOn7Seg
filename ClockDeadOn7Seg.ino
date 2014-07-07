@@ -114,9 +114,9 @@ void showTemp(float floatval)
   tempCycles %= 1000;
   SPI.transfer( toSpaceOr09(tempCycles / 100) );
   tempCycles %= 100;
-  SPI.transfer( toSpaceOr09(tempCycles / 10) );
+  SPI.transfer( (tempCycles / 10) );
   tempCycles %= 10;
-  SPI.transfer( toSpaceOr09(tempCycles ) ); 
+  SPI.transfer( (tempCycles ) ); 
   floatval *= 10;
   tempCycles = floor(floatval);
   tempCycles %= 10;
@@ -195,7 +195,8 @@ void loop() {
     
 //    showTemp( now.second() );
     showTemp( DS3234_get_treg(cs) );
-
+//float f = 30.4;
+ //   showTemp(f);
       
   delay(1000);
 }
