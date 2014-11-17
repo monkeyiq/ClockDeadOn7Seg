@@ -146,6 +146,25 @@ void setup()
   lc.setIntensity(0,8);
   /* and clear the display */
   lc.clearDisplay(0);
+
+      lc.setDigit(0,0, 7,false);
+      lc.setDigit(0,1, 7,false);
+      lc.setDigit(0,2, 3,false);
+      lc.setDigit(0,3, 1,false);
+
+int i=0;
+int loops = 2;
+   for(; loops > 0; loops--) {
+   for( i = 0; i < 10; i++ ) {
+       lc.clearDisplay(0);
+
+      lc.setDigit(0,0, i,false);
+      lc.setDigit(0,1, i,false);
+      lc.setDigit(0,2, i,false);
+      lc.setDigit(0,3, i,false);
+      delay(1000);
+   }
+   }
   
   Serial.begin(57600);
   Serial.setTimeout( 10* 1000 );
